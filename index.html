@@ -77,7 +77,7 @@ position:sticky;
 top:20px;
 width:90%;
 margin:auto;
-padding:15px 40px;
+padding:15px 30px;
 display:flex;
 justify-content:space-between;
 align-items:center;
@@ -100,6 +100,63 @@ nav a{
 text-decoration:none;
 color:white;
 font-weight:500;
+transition:0.3s;
+}
+
+nav a:hover{
+color:#38bdf8;
+}
+
+/* HAMBURGER */
+
+.menu-toggle{
+display:none;
+font-size:28px;
+cursor:pointer;
+}
+
+/* MOBILE */
+
+@media(max-width:768px){
+
+.menu-toggle{
+display:block;
+}
+
+nav{
+position:absolute;
+top:70px;
+right:0;
+background:rgba(0,0,0,0.8);
+width:200px;
+flex-direction:column;
+text-align:center;
+padding:20px;
+border-radius:15px;
+display:none;
+}
+
+nav.active{
+display:flex;
+}
+
+.home{
+flex-direction:column;
+text-align:center;
+}
+
+.home-image img{
+width:220px;
+}
+
+section{
+padding:80px 6%;
+}
+
+.grid{
+grid-template-columns:1fr;
+}
+
 }
 
 /* SECTION */
@@ -203,14 +260,17 @@ opacity:.7;
 
 <div class="logo">Arjun's Portfolio</div>
 
-<nav>
+<div class="menu-toggle" id="menu-toggle">
+☰
+</div>
+
+<nav id="nav-links">
 <a href="#home">Home</a>
 <a href="#projects">Projects</a>
 <a href="#contact">Contact</a>
 </nav>
 
 </header>
-
 <!-- HOME -->
 
 <section id="home">
@@ -392,6 +452,16 @@ I enjoy building creative web experiences and improving my development skills.
 <footer>
 © 2026 Arjun Portfolio
 </footer>
+<script>
+
+const menuToggle = document.getElementById("menu-toggle");
+const navLinks = document.getElementById("nav-links");
+
+menuToggle.onclick = () => {
+navLinks.classList.toggle("active");
+};
+
+</script>
 
 </body>
 </html>
