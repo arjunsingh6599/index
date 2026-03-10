@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Weather App</title>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial;
+}
+
+body{
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+background:linear-gradient(135deg,#667eea,#764ba2);
+}
+
+.container{
+background:white;
+padding:35px;
+border-radius:12px;
+width:90%;
+max-width:420px;
+box-shadow:0 10px 30px rgba(0,0,0,0.3);
+text-align:center;
+}
+
+h2{
+margin-bottom:20px;
+}
+
+input{
+width:100%;
+padding:12px;
+margin:10px 0;
+border:1px solid #ccc;
+border-radius:6px;
+}
+
+button{
+width:100%;
+padding:12px;
+border:none;
+background:#667eea;
+color:white;
+border-radius:6px;
+cursor:pointer;
+font-size:16px;
+}
+
+button:hover{
+background:#4f5cd6;
+}
+
+.weather{
+margin-top:20px;
+font-size:18px;
+line-height:1.8;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<h2>Weather App</h2>
+
+<input type="text" id="city" placeholder="Enter City Name">
+
+<button onclick="getWeather()">Check Weather</button>
+
+<div class="weather" id="weatherResult"></div>
+
+</div>
+
+<script>
+
+async function getWeather(){
+
+let city=document.getElementById("city").value;
+
+let apiKey="e362979b4afc444c36e1feaa7ee2ba32";
+
+let url=`https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${apiKey}`;
+
+try{
+
+let response=await fetch(url);
+let data=await response.json();
+
+if(data.cod=="404"){
+document.getElementById("weatherResult").innerHTML="City not found";
+return;
+}
+
+let temp=data.main.temp;
+let humidity=data.main.humidity;
+let wind=data.wind.speed;
+let desc=data.weather[0].description;
+
+document.getElementById("weatherResult").innerHTML=
+
+`🌍 City: ${city} <br>
+🌡 Temperature: ${temp} °C <br>
+☁ Weather: ${desc} <br>
+💧 Humidity: ${humidity}% <br>
+🌬 Wind Speed: ${wind} km/h`;
+
+}catch(error){
+
+document.getElementById("weatherResult").innerHTML="Error getting weather";
+
+}
+
+}
+
+</script>
+
+</body>
+</html>

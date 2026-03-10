@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Bright Future Institute</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+scroll-behavior:smooth;
+}
+
+body{
+background:#f5f7fb;
+color:#333;
+}
+
+/* NAVBAR */
+
+nav{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:20px 8%;
+background:white;
+box-shadow:0 5px 20px rgba(0,0,0,0.05);
+position:sticky;
+top:0;
+z-index:100;
+}
+
+.logo{
+font-size:26px;
+font-weight:600;
+color:#0a4abf;
+}
+
+nav ul{
+display:flex;
+list-style:none;
+}
+
+nav ul li{
+margin-left:25px;
+}
+
+nav ul li a{
+text-decoration:none;
+color:#444;
+font-weight:500;
+}
+
+nav ul li a:hover{
+color:#0a4abf;
+}
+
+/* HERO */
+
+.hero{
+height:90vh;
+background:linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),
+url("https://media.istockphoto.com/id/1588288383/photo/back-view-of-student-raising-his-hand-to-answer-teachers-question-during-education-training.jpg?s=612x612&w=0&k=20&c=ZSyPrLqe6WdE81WXiESD5AqIVw1a7hKv85UI5I-Vwco=");
+background-size:cover;
+background-position:center;
+
+display:flex;
+align-items:center;
+justify-content:center;
+text-align:center;
+color:white;
+flex-direction:column;
+padding:20px;
+}
+
+.hero h1{
+font-size:55px;
+margin-bottom:15px;
+}
+
+.hero p{
+font-size:20px;
+max-width:600px;
+margin-bottom:25px;
+}
+
+.hero button{
+padding:14px 30px;
+border:none;
+background:#0a4abf;
+color:white;
+font-size:16px;
+border-radius:30px;
+cursor:pointer;
+}
+
+/* ABOUT */
+
+.about{
+padding:80px 10%;
+background:white;
+}
+
+.about-container{
+display:flex;
+gap:40px;
+align-items:center;
+flex-wrap:wrap;
+}
+
+.about img{
+width:420px;
+border-radius:12px;
+}
+
+.about-text{
+max-width:600px;
+line-height:1.8;
+}
+
+/* COURSES */
+
+.courses{
+padding:80px 8%;
+text-align:center;
+}
+
+.course-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:30px;
+margin-top:40px;
+}
+
+.course{
+background:white;
+border-radius:12px;
+overflow:hidden;
+box-shadow:0 10px 25px rgba(0,0,0,0.08);
+}
+
+.course img{
+width:100%;
+height:180px;
+object-fit:cover;
+}
+
+.course h3{
+margin:15px 0 5px;
+}
+
+.course p{
+padding:0 15px 20px;
+font-size:14px;
+}
+
+/* TEACHERS */
+
+.teachers{
+padding:80px 8%;
+background:white;
+text-align:center;
+}
+
+.teacher-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:30px;
+margin-top:40px;
+}
+
+.teacher{
+background:#f9f9f9;
+padding:20px;
+border-radius:10px;
+}
+
+.teacher img{
+width:120px;
+height:120px;
+border-radius:50%;
+object-fit:cover;
+margin-bottom:10px;
+}
+
+/* STATS */
+
+.stats{
+padding:70px 8%;
+background:#0a4abf;
+color:white;
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+text-align:center;
+}
+
+.stat h2{
+font-size:40px;
+margin-bottom:10px;
+}
+
+/* CONTACT */
+
+.contact{
+padding:80px 8%;
+text-align:center;
+}
+
+.contact input,
+.contact textarea{
+width:100%;
+max-width:500px;
+padding:12px;
+margin:10px 0;
+border-radius:6px;
+border:1px solid #ddd;
+}
+
+button{
+padding:12px 25px;
+border:none;
+background:#0a4abf;
+color:white;
+border-radius:6px;
+cursor:pointer;
+}
+
+/* FOOTER */
+
+footer{
+background:#222;
+color:white;
+text-align:center;
+padding:20px;
+margin-top:40px;
+}
+
+/* MOBILE */
+
+@media(max-width:768px){
+
+.hero h1{
+font-size:38px;
+}
+
+nav ul{
+display:none;
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+
+<nav>
+
+<div class="logo">BrightFuture</div>
+
+<ul>
+<li><a href="#">Home</a></li>
+<li><a href="#about">About</a></li>
+<li><a href="#courses">Courses</a></li>
+<li><a href="#teachers">Teachers</a></li>
+<li><a href="#contact">Contact</a></li>
+</ul>
+
+</nav>
+
+<!-- HERO -->
+
+<section class="hero">
+
+<h1>Bright Future Educational Institute</h1>
+
+<p>
+Providing quality education and professional training
+to help students build successful careers.
+</p>
+
+<button onclick="scrollToCourses()">Explore Courses</button>
+
+</section>
+
+<!-- ABOUT -->
+
+<section class="about" id="about">
+
+<div class="about-container">
+
+<img src="images/about.jpg">
+
+<div class="about-text">
+
+<h2>About Our Institute</h2>
+
+<p>
+Bright Future Institute is dedicated to providing high-quality
+education in technology, design, and business fields.
+</p>
+
+<p>
+Our programs focus on practical learning, real-world projects,
+and industry-relevant skills.
+</p>
+
+<p>
+We help students gain knowledge and confidence
+to succeed in modern careers.
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- COURSES -->
+
+<section class="courses" id="courses">
+
+<h2>Our Courses</h2>
+
+<div class="course-grid">
+
+<div class="course">
+<img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085">
+<h3>Web Development</h3>
+<p>Learn HTML, CSS, JavaScript and build modern websites.</p>
+</div>
+
+<div class="course">
+<img src="https://images.unsplash.com/photo-1559028012-481c04fa702d">
+<h3>UI/UX Design</h3>
+<p>Design beautiful digital interfaces and user experiences.</p>
+</div>
+
+<div class="course">
+<img src="https://images.unsplash.com/photo-1557838923-2985c318be48">
+<h3>E-Commerce Development</h3>
+<p>Create modern online stores and business websites.</p>
+</div>
+
+<div class="course">
+<img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71">
+<h3>Digital Marketing</h3>
+<p>Learn SEO, social media marketing and online branding.</p>
+</div>
+
+</div>
+
+</section>
+
+<!-- TEACHERS -->
+
+<section class="teachers" id="teachers">
+
+<h2>Our Faculty</h2>
+
+<div class="teacher-grid">
+
+<div class="teacher">
+<img src="https://randomuser.me/api/portraits/men/32.jpg">
+<h3>Mr. Rajesh Kumar</h3>
+<p>Senior Web Development Instructor</p>
+</div>
+
+<div class="teacher">
+<img src="https://randomuser.me/api/portraits/women/44.jpg">
+<h3>Ms. Neha Sharma</h3>
+<p>UI/UX Design Expert</p>
+</div>
+
+<div class="teacher">
+<img src="https://randomuser.me/api/portraits/men/55.jpg">
+<h3>Mr. Aman Gupta</h3>
+<p>Digital Marketing Trainer</p>
+</div>
+
+<div class="teacher">
+<img src="https://randomuser.me/api/portraits/women/68.jpg">
+<h3>Ms. Priya Verma</h3>
+<p>E-Commerce Specialist</p>
+</div>
+
+</div>
+
+</section>
+
+<!-- STATS -->
+
+<section class="stats">
+
+<div class="stat">
+<h2>1500+</h2>
+<p>Students</p>
+</div>
+
+<div class="stat">
+<h2>40+</h2>
+<p>Courses</p>
+</div>
+
+<div class="stat">
+<h2>25+</h2>
+<p>Expert Teachers</p>
+</div>
+
+<div class="stat">
+<h2>10+</h2>
+<p>Years Experience</p>
+</div>
+
+</section>
+
+<!-- CONTACT -->
+
+<section class="contact" id="contact">
+
+<h2>Contact Us</h2>
+
+<input type="text" placeholder="Your Name"><br>
+<input type="email" placeholder="Your Email"><br>
+<textarea rows="4" placeholder="Message"></textarea><br>
+
+<button>Send Message</button>
+
+</section>
+
+<footer>
+
+<p>© 2026 Bright Future Institute | All Rights Reserved</p>
+
+</footer>
+
+<script>
+
+function scrollToCourses(){
+
+document.getElementById("courses")
+.scrollIntoView({behavior:"smooth"});
+
+}
+
+</script>
+
+</body>
+</html>

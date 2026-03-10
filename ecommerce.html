@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MyStore | Modern Shopping</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+scroll-behavior:smooth;
+}
+
+body{
+background:linear-gradient(120deg,#f6f9fc,#e9eff5);
+color:#333;
+}
+
+/* NAVBAR */
+
+nav{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:20px 8%;
+background:white;
+box-shadow:0 5px 20px rgba(0,0,0,0.05);
+position:sticky;
+top:0;
+z-index:100;
+}
+
+.logo{
+font-size:26px;
+font-weight:600;
+}
+
+nav ul{
+display:flex;
+list-style:none;
+}
+
+nav ul li{
+margin-left:25px;
+}
+
+nav ul li a{
+text-decoration:none;
+color:#444;
+font-weight:500;
+}
+
+nav ul li a:hover{
+color:#ff4d4d;
+}
+
+#search{
+padding:8px 12px;
+border-radius:20px;
+border:1px solid #ddd;
+outline:none;
+width:200px;
+}
+
+/* HERO */
+
+.hero{
+height:85vh;
+background:url("https://images.unsplash.com/photo-1441986300917-64674bd600d8") center/cover;
+display:flex;
+align-items:center;
+justify-content:center;
+text-align:center;
+color:white;
+flex-direction:column;
+}
+
+.hero h1{
+font-size:60px;
+text-shadow:2px 2px 15px rgba(0,0,0,0.6);
+}
+
+.hero p{
+margin:10px 0 20px;
+font-size:20px;
+}
+
+.hero button{
+padding:12px 28px;
+border:none;
+background:#ff4d4d;
+color:white;
+border-radius:30px;
+cursor:pointer;
+}
+
+/* SHOP CATEGORIES (NOW WITH PRODUCTS) */
+
+.categories{
+padding:70px 8%;
+text-align:center;
+}
+
+.cat-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+gap:30px;
+}
+
+.cat{
+background:white;
+border-radius:15px;
+overflow:hidden;
+box-shadow:0 10px 25px rgba(0,0,0,0.08);
+}
+
+.cat img{
+width:100%;
+height:220px;
+object-fit:cover;
+}
+
+.cat-content{
+padding:20px;
+}
+
+.price{
+color:#ff4d4d;
+font-weight:600;
+margin:10px 0;
+}
+
+button{
+padding:10px 20px;
+border:none;
+background:#ff4d4d;
+color:white;
+border-radius:6px;
+cursor:pointer;
+}
+
+/* ABOUT */
+
+.about{
+padding:80px 12%;
+text-align:center;
+background:white;
+}
+
+.about p{
+max-width:700px;
+margin:auto;
+line-height:1.7;
+}
+
+/* CONTACT */
+
+.contact{
+padding:70px 8%;
+text-align:center;
+}
+
+.contact input,
+.contact textarea{
+width:100%;
+max-width:500px;
+padding:12px;
+margin:10px 0;
+border:1px solid #ddd;
+border-radius:6px;
+}
+
+/* CART */
+
+.cart{
+position:fixed;
+bottom:25px;
+right:25px;
+background:#333;
+color:white;
+padding:15px 22px;
+border-radius:30px;
+cursor:pointer;
+}
+
+/* CART BOX */
+
+.cartBox{
+position:fixed;
+top:0;
+right:-350px;
+width:350px;
+height:100%;
+background:white;
+box-shadow:-5px 0 20px rgba(0,0,0,0.2);
+padding:20px;
+transition:.4s;
+overflow:auto;
+}
+
+.cartBox.active{
+right:0;
+}
+
+.cartBox li{
+margin:10px 0;
+}
+
+/* FOOTER */
+
+footer{
+text-align:center;
+padding:25px;
+background:#222;
+color:white;
+}
+
+@media(max-width:768px){
+
+.hero h1{
+font-size:38px;
+}
+
+nav ul{
+display:none;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<nav>
+<div class="logo">MyStore</div>
+
+<input type="text" id="search" placeholder="Search products..." onkeyup="searchProduct()">
+
+<ul>
+<li><a href="#">Home</a></li>
+<li><a href="#categories">Products</a></li>
+<li><a href="#about">About</a></li>
+<li><a href="#contact">Contact</a></li>
+</ul>
+</nav>
+
+<section class="hero">
+<h1>Discover Your Style</h1>
+<p>Best fashion products for everyone</p>
+<button onclick="scrollToProducts()">Shop Now</button>
+</section>
+
+<section class="categories" id="categories">
+
+<h2>Shop Categories</h2>
+
+<div class="cat-grid">
+
+<div class="cat">
+<img src="images/1.webp">
+<div class="cat-content">
+<h3>Luxury Watch</h3>
+<p class="price">$120</p>
+<button onclick="addCart('Luxury Watch')">Add to Cart</button>
+</div>
+</div>
+
+<div class="cat">
+<img src="images/2.jpg">
+<div class="cat-content">
+<h3>Running Shoes</h3>
+<p class="price">$90</p>
+<button onclick="addCart('Running Shoes')">Add to Cart</button>
+</div>
+</div>
+
+<div class="cat">
+<img src="images/3.jpg">
+<div class="cat-content">
+<h3>Fashion Jacket</h3>
+<p class="price">$150</p>
+<button onclick="addCart('Fashion Jacket')">Add to Cart</button>
+</div>
+</div>
+
+<div class="cat">
+<img src="images/4.jpg">
+<div class="cat-content">
+<h3>Stylish Bag</h3>
+<p class="price">$70</p>
+<button onclick="addCart('Stylish Bag')">Add to Cart</button>
+</div>
+</div>
+
+<div class="cat">
+<img src="images/5.webp">
+<div class="cat-content">
+<h3>Black Sunglasses</h3>
+<p class="price">$40</p>
+<button onclick="addCart('Black Sunglasses')">Add to Cart</button>
+</div>
+</div>
+
+<div class="cat">
+<img src="images/6.jpg">
+<div class="cat-content">
+<h3>Casual Hoodie</h3>
+<p class="price">$65</p>
+<button onclick="addCart('Casual Hoodie')">Add to Cart</button>
+</div>
+</div>
+
+<div class="cat">
+<img src="images/7.jpg">
+<div class="cat-content">
+<h3>White Sneakers</h3>
+<p class="price">$110</p>
+<button onclick="addCart('White Sneakers')">Add to Cart</button>
+</div>
+</div>
+
+<div class="cat">
+<img src="images/8.jpg">
+<div class="cat-content">
+<h3>Travel Backpack</h3>
+<p class="price">$85</p>
+<button onclick="addCart('Travel Backpack')">Add to Cart</button>
+</div>
+</div>
+
+<div class="cat">
+<img src="images/9.jpg">
+<div class="cat-content">
+<h3>Wireless Headphones</h3>
+<p class="price">$130</p>
+<button onclick="addCart('Wireless Headphones')">Add to Cart</button>
+</div>
+</div>
+
+<div class="cat">
+<img src="images/10.jpg">
+<div class="cat-content">
+<h3>Perfume</h3>
+<p class="price">$160</p>
+<button onclick="addCart('Perfume')">Add to Cart</button>
+</div>
+</div>
+
+</div>
+</section>
+
+<section class="about" id="about">
+<h2>About Our Store</h2>
+<p>
+MyStore is a modern ecommerce website where you can discover stylish fashion products,
+shoes, accessories and more.
+</p>
+</section>
+
+<section class="contact" id="contact">
+
+<h2>Contact Us</h2>
+
+<input type="text" placeholder="Your Name"><br>
+<input type="email" placeholder="Your Email"><br>
+<textarea rows="4" placeholder="Message"></textarea><br>
+<button>Send Message</button>
+
+</section>
+
+<div class="cart" onclick="openCart()">
+🛒 Cart (<span id="count">0</span>)
+</div>
+
+<div id="cartBox" class="cartBox">
+<h2>Your Cart</h2>
+<ul id="cartItems"></ul>
+<button onclick="closeCart()">Close</button>
+</div>
+
+<footer>
+<p>© 2026 MyStore | All Rights Reserved</p>
+</footer>
+
+<script>
+
+let cart=[];
+
+function addCart(product){
+cart.push(product);
+document.getElementById("count").innerText=cart.length;
+updateCart();
+}
+
+function updateCart(){
+let list=document.getElementById("cartItems");
+list.innerHTML="";
+cart.forEach(item=>{
+let li=document.createElement("li");
+li.innerText=item;
+list.appendChild(li);
+});
+}
+
+function openCart(){
+document.getElementById("cartBox").classList.add("active");
+}
+
+function closeCart(){
+document.getElementById("cartBox").classList.remove("active");
+}
+
+function scrollToProducts(){
+document.getElementById("categories").scrollIntoView({behavior:"smooth"});
+}
+
+function searchProduct(){
+let input=document.getElementById("search").value.toLowerCase();
+let cards=document.getElementsByClassName("cat");
+
+for(let i=0;i<cards.length;i++){
+let title=cards[i].getElementsByTagName("h3")[0].innerText.toLowerCase();
+
+if(title.includes(input)){
+cards[i].style.display="block";
+}else{
+cards[i].style.display="none";
+}
+}
+}
+
+</script>
+
+</body>
+</html>

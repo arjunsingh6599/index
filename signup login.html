@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Login & Signup</title>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial;
+}
+
+body{
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+background:linear-gradient(135deg,#667eea,#764ba2);
+}
+
+.container{
+background:white;
+padding:35px;
+border-radius:12px;
+width:90%;
+max-width:420px;
+box-shadow:0 10px 30px rgba(0,0,0,0.3);
+text-align:center;
+}
+
+h2{
+margin-bottom:20px;
+}
+
+.form{
+display:none;
+}
+
+.form.active{
+display:block;
+}
+
+input{
+width:100%;
+padding:12px;
+margin:10px 0;
+border:1px solid #ccc;
+border-radius:6px;
+}
+
+button{
+width:100%;
+padding:12px;
+border:none;
+background:#667eea;
+color:white;
+border-radius:6px;
+cursor:pointer;
+font-size:16px;
+margin-top:10px;
+}
+
+button:hover{
+background:#4f5cd6;
+}
+
+.switch{
+margin-top:15px;
+font-size:14px;
+}
+
+.switch span{
+color:#667eea;
+cursor:pointer;
+font-weight:bold;
+}
+
+.message{
+margin-top:10px;
+font-size:14px;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<!-- SIGNUP -->
+
+<div class="form active" id="signupForm">
+
+<h2>Create Account</h2>
+
+<input type="text" id="signupName" placeholder="Full Name" required>
+<input type="email" id="signupEmail" placeholder="Email Address" required>
+<input type="password" id="signupPassword" placeholder="Create Password" required>
+
+<button onclick="signup()">Signup</button>
+
+<div class="switch">
+Already have an account? 
+<span onclick="showLogin()">Login</span>
+</div>
+
+<p class="message" id="signupMsg"></p>
+
+</div>
+
+<!-- LOGIN -->
+
+<div class="form" id="loginForm">
+
+<h2>Login</h2>
+
+<input type="email" id="loginEmail" placeholder="Email Address" required>
+<input type="password" id="loginPassword" placeholder="Password" required>
+
+<button onclick="login()">Login</button>
+
+<div class="switch">
+Don't have an account? 
+<span onclick="showSignup()">Signup</span>
+</div>
+
+<p class="message" id="loginMsg"></p>
+
+</div>
+
+</div>
+
+<script>
+
+/* SWITCH FORMS */
+
+function showLogin(){
+
+document.getElementById("signupForm").classList.remove("active");
+document.getElementById("loginForm").classList.add("active");
+
+}
+
+function showSignup(){
+
+document.getElementById("loginForm").classList.remove("active");
+document.getElementById("signupForm").classList.add("active");
+
+}
+
+/* SIGNUP */
+
+function signup(){
+
+let name = document.getElementById("signupName").value;
+let email = document.getElementById("signupEmail").value;
+let password = document.getElementById("signupPassword").value;
+
+if(name=="" || email=="" || password==""){
+document.getElementById("signupMsg").innerText="Please fill all fields";
+return;
+}
+
+let user = {
+name:name,
+email:email,
+password:password
+};
+
+localStorage.setItem("user", JSON.stringify(user));
+
+document.getElementById("signupMsg").style.color="green";
+document.getElementById("signupMsg").innerText="Account Created Successfully!";
+
+setTimeout(()=>{
+showLogin();
+},1500);
+
+}
+
+/* LOGIN */
+
+function login(){
+
+let email = document.getElementById("loginEmail").value;
+let password = document.getElementById("loginPassword").value;
+
+let savedUser = JSON.parse(localStorage.getItem("user"));
+
+if(savedUser == null){
+
+document.getElementById("loginMsg").style.color="red";
+document.getElementById("loginMsg").innerText="No account found";
+
+return;
+
+}
+
+if(email === savedUser.email && password === savedUser.password){
+
+document.getElementById("loginMsg").style.color="green";
+document.getElementById("loginMsg").innerText="Login Successful! Welcome "+savedUser.name;
+
+}else{
+
+document.getElementById("loginMsg").style.color="red";
+document.getElementById("loginMsg").innerText="Wrong Email or Password";
+
+}
+
+}
+
+</script>
+
+</body>
+</html>

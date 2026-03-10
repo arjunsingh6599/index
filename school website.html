@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Bright Future School</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Montserrat',sans-serif;
+scroll-behavior:smooth;
+}
+
+body{
+background:linear-gradient(135deg,#eef2ff,#dbeafe,#f8fbff);
+color:#333;
+}
+
+/* NAVBAR */
+
+header{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:18px 8%;
+background:white;
+box-shadow:0 4px 20px rgba(0,0,0,0.08);
+position:sticky;
+top:0;
+z-index:100;
+}
+
+.logo{
+font-size:24px;
+font-weight:700;
+color:#003b8b;
+}
+
+nav a{
+margin:0 15px;
+text-decoration:none;
+color:#333;
+font-weight:500;
+}
+
+nav a:hover{
+color:#003b8b;
+}
+
+/* HERO */
+
+.hero{
+height:100vh;
+background:
+linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)),
+url("https://c1.wallpaperflare.com/preview/245/878/523/building-education-florida-photos.jpg") center/cover;
+display:flex;
+align-items:center;
+justify-content:center;
+text-align:center;
+color:white;
+}
+
+.hero h1{
+font-size:65px;
+}
+
+.hero p{
+margin-top:15px;
+font-size:22px;
+}
+
+.hero button{
+margin-top:30px;
+padding:14px 35px;
+border:none;
+background:#ffd000;
+font-weight:600;
+border-radius:30px;
+cursor:pointer;
+}
+
+.hero button:hover{
+background:white;
+}
+
+/* SECTION */
+
+section{
+padding:80px 8%;
+}
+
+h2{
+text-align:center;
+margin-bottom:40px;
+font-size:36px;
+color:#003b8b;
+}
+
+/* ABOUT */
+
+.about-grid{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:40px;
+align-items:center;
+}
+
+.about-grid img{
+width:100%;
+border-radius:10px;
+}
+
+.about-text p{
+margin-bottom:15px;
+line-height:1.7;
+}
+
+/* CARDS */
+
+.cards{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:25px;
+}
+
+.card{
+background:white;
+padding:25px;
+border-radius:10px;
+box-shadow:0 8px 20px rgba(0,0,0,0.08);
+text-align:center;
+transition:.3s;
+}
+
+.card:hover{
+transform:translateY(-6px);
+}
+
+/* TEACHERS */
+
+.teacher-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:25px;
+}
+
+.teacher{
+background:white;
+border-radius:10px;
+box-shadow:0 8px 20px rgba(0,0,0,0.08);
+text-align:center;
+overflow:hidden;
+}
+
+.teacher img{
+width:100%;
+height:230px;
+object-fit:cover;
+}
+
+.teacher h3{
+margin-top:10px;
+}
+
+/* GALLERY */
+
+.gallery{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:20px;
+}
+
+.gallery img{
+width:100%;
+border-radius:10px;
+transition:.4s;
+}
+
+.gallery img:hover{
+transform:scale(1.05);
+}
+
+/* CONTACT */
+
+form{
+max-width:500px;
+margin:auto;
+display:flex;
+flex-direction:column;
+}
+
+input,textarea{
+padding:12px;
+margin:10px 0;
+border-radius:6px;
+border:1px solid #ccc;
+}
+
+button{
+padding:12px;
+border:none;
+background:#003b8b;
+color:white;
+border-radius:6px;
+cursor:pointer;
+}
+
+button:hover{
+background:#002766;
+}
+
+/* FOOTER */
+
+footer{
+background:#111;
+color:white;
+text-align:center;
+padding:30px;
+margin-top:40px;
+}
+
+/* MOBILE */
+
+@media(max-width:900px){
+
+.about-grid{
+grid-template-columns:1fr;
+}
+
+.hero h1{
+font-size:40px;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+
+<div class="logo">Bright Future School</div>
+
+<nav>
+<a href="#home">Home</a>
+<a href="#about">About</a>
+<a href="#facilities">Facilities</a>
+<a href="#teachers">Teachers</a>
+<a href="#gallery">Gallery</a>
+<a href="#contact">Contact</a>
+</nav>
+
+</header>
+
+<!-- HERO -->
+
+<section class="hero" id="home">
+
+<div>
+
+<h1>Welcome to Bright Future School</h1>
+<p>Empowering Students for a Successful Future</p>
+
+<a href="#about"><button>Explore School</button></a>
+
+</div>
+
+</section>
+
+<!-- ABOUT -->
+
+<section id="about">
+
+<h2>About Our School</h2>
+
+<div class="about-grid">
+
+<img src="https://c1.wallpaperflare.com/preview/245/878/523/building-education-florida-photos.jpg">
+
+<div class="about-text">
+
+<p>Bright Future School is committed to providing high quality education that helps students achieve academic excellence and personal growth.</p>
+
+<p>Our institution focuses on building strong values, creativity, leadership, and confidence among students.</p>
+
+<p>We provide modern classrooms, laboratories, sports facilities, and extracurricular activities to ensure overall development.</p>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- FACILITIES -->
+
+<section id="facilities">
+
+<h2>School Facilities</h2>
+
+<div class="cards">
+
+<div class="card">
+<h3>Smart Classrooms</h3>
+<p>Interactive digital classrooms for modern learning.</p>
+</div>
+
+<div class="card">
+<h3>Science Labs</h3>
+<p>Fully equipped laboratories for practical knowledge.</p>
+</div>
+
+<div class="card">
+<h3>Sports Ground</h3>
+<p>Large playground for sports and physical development.</p>
+</div>
+
+<div class="card">
+<h3>Library</h3>
+<p>Thousands of books and digital learning resources.</p>
+</div>
+
+</div>
+
+</section>
+
+<!-- TEACHERS -->
+
+<section id="teachers">
+
+<h2>Our Teachers</h2>
+
+<div class="teacher-grid">
+
+<div class="teacher">
+<img src="https://images.unsplash.com/photo-1544717297-fa95b6ee9643">
+<h3>Sarah Johnson</h3>
+<p>Mathematics Teacher</p>
+</div>
+
+<div class="teacher">
+<img src="https://images.unsplash.com/photo-1607746882042-944635dfe10e">
+<h3>Michael Lee</h3>
+<p>Science Teacher</p>
+</div>
+
+<div class="teacher">
+<img src="https://img.freepik.com/free-photo/african-american-teacher-assisting-her-students-class-elementary-school_637285-8628.jpg?semt=ais_hybrid&w=740&q=80">
+<h3>Emma Williams</h3>
+<p>English Teacher</p>
+</div>
+
+<div class="teacher">
+<img src="https://images.unsplash.com/photo-1560250097-0b93528c311a">
+<h3>David Brown</h3>
+<p>Sports Instructor</p>
+</div>
+
+</div>
+
+</section>
+
+<!-- GALLERY -->
+
+<section id="gallery">
+
+<h2>School Gallery</h2>
+
+<div class="gallery">
+
+<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTBHvz8xbITSWZhQyId2Nb4Skda463Gdc2J_Q&s">
+<img src="https://images.unsplash.com/photo-1588072432836-e10032774350">
+<img src="https://images.unsplash.com/photo-1509062522246-3755977927d7">
+<img src="https://images.unsplash.com/photo-1577896851231-70ef18881754">
+
+</div>
+
+</section>
+
+<!-- STATISTICS -->
+
+<section>
+
+<h2>School Statistics</h2>
+
+<div class="cards">
+
+<div class="card">
+<h3>1500+</h3>
+<p>Students</p>
+</div>
+
+<div class="card">
+<h3>80+</h3>
+<p>Teachers</p>
+</div>
+
+<div class="card">
+<h3>25+</h3>
+<p>Years of Excellence</p>
+</div>
+
+<div class="card">
+<h3>30+</h3>
+<p>Activities</p>
+</div>
+
+</div>
+
+</section>
+
+<!-- CONTACT -->
+
+<section id="contact">
+
+<h2>Contact Us</h2>
+
+<form onsubmit="sendMsg(); return false;">
+
+<input type="text" placeholder="Your Name" required>
+<input type="email" placeholder="Your Email" required>
+<textarea rows="5" placeholder="Your Message"></textarea>
+
+<button type="submit">Send Message</button>
+
+</form>
+
+</section>
+
+<footer>
+
+<p>© 2026 Bright Future School | All Rights Reserved</p>
+
+</footer>
+
+<script>
+
+function sendMsg(){
+alert("Message Sent Successfully 📩");
+}
+
+</script>
+
+</body>
+</html>

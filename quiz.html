@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Quiz Application</title>
+
+<style>
+
+body{
+font-family: Arial;
+background: linear-gradient(135deg,#667eea,#764ba2);
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+margin:0;
+}
+
+.quiz-box{
+background:white;
+padding:30px;
+border-radius:12px;
+width:420px;
+max-width:90%;
+box-shadow:0 10px 30px rgba(0,0,0,0.3);
+text-align:center;
+}
+
+h2{
+margin-bottom:20px;
+}
+
+.option{
+background:#f1f1f1;
+margin:10px 0;
+padding:12px;
+border-radius:6px;
+cursor:pointer;
+transition:0.3s;
+}
+
+.option:hover{
+background:#ddd;
+}
+
+.option.active{
+background:#667eea;
+color:white;
+}
+
+button{
+margin-top:15px;
+padding:10px 20px;
+border:none;
+background:#667eea;
+color:white;
+font-size:16px;
+border-radius:6px;
+cursor:pointer;
+}
+
+button:hover{
+background:#4b5ed7;
+}
+
+.result{
+font-size:20px;
+margin-top:20px;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="quiz-box">
+
+<h2 id="question">Question</h2>
+
+<div id="options"></div>
+
+<button onclick="nextQuestion()">Next</button>
+
+<div class="result" id="result"></div>
+
+</div>
+
+<script>
+
+const quiz = [
+
+{
+type:"mcq",
+question:"Which language runs in the browser?",
+options:["Java","C","Python","JavaScript"],
+answer:"JavaScript"
+},
+
+{
+type:"tf",
+question:"HTML is used to create webpage structure.",
+answer:"True"
+},
+
+{
+type:"mcq",
+question:"What does CSS stand for?",
+options:[
+"Central Style Sheets",
+"Cascading Style Sheets",
+"Cascading Simple Sheets",
+"Computer Style Sheets"
+],
+answer:"Cascading Style Sheets"
+},
+
+{
+type:"tf",
+question:"JavaScript is a programming language.",
+answer:"True"
+}
+
+];
+
+let index = 0;
+let score = 0;
+let selected = "";
+
+function loadQuestion(){
+
+let q = quiz[index];
+
+document.getElementById("question").innerText = q.question;
+
+let optionsHTML = "";
+
+if(q.type === "tf"){
+
+["True","False"].forEach(opt=>{
+optionsHTML += `<div class="option" onclick="selectOption(this,'${opt}')">${opt}</div>`;
+});
+
+}else{
+
+q.options.forEach(opt=>{
+optionsHTML += `<div class="option" onclick="selectOption(this,'${opt}')">${opt}</div>`;
+});
+
+}
+
+document.getElementById("options").innerHTML = optionsHTML;
+
+}
+
+function selectOption(el,value){
+
+selected = value;
+
+document.querySelectorAll(".option").forEach(o=>{
+o.classList.remove("active");
+});
+
+el.classList.add("active");
+
+}
+
+function nextQuestion(){
+
+if(selected === ""){
+alert("Please select an option first!");
+return;
+}
+
+if(selected === quiz[index].answer){
+
+alert("Correct Answer ✅");
+score++;
+
+}else{
+
+alert("Wrong Answer ❌");
+
+}
+
+selected="";
+index++;
+
+if(index < quiz.length){
+
+loadQuestion();
+
+}else{
+
+document.querySelector(".quiz-box").innerHTML = `
+<h2>Quiz Completed 🎉</h2>
+<p>Your Score: ${score} / ${quiz.length}</p>
+<button onclick="location.reload()">Restart Quiz</button>
+`;
+
+}
+
+}
+
+loadQuestion();
+
+</script>
+
+</body>
+</html>
